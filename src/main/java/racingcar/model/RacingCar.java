@@ -25,14 +25,21 @@ public class RacingCar {
     public static void getWinners() {
         ArrayList<String> winners = new ArrayList<>();
         int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
-        }
+        maxPosition = getMaxPosition();
         for (Car car : cars) {
             if (car.getPosition() == maxPosition) {
                 winners.add(car.getName());
             }
         }
         ResultView.printWinner(winners);
+    }
+
+    // 최대 이동값
+    private static int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
     }
 }
