@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class NameValid {
     final ArrayList<String> names;
 
-    public static ArrayList<String> toArrayList(String carsString) {
+    public ArrayList<String> toArrayList(String carsString) {
         String[] carNames = carsString.trim().split(",");
         ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames));
         return names;

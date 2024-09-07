@@ -1,11 +1,12 @@
 package racingcar.model;
 
-import java.util.ArrayList;
+import racingcar.view.ResultView;
 
-import static racingcar.view.ResultView.printWinner;
+import java.util.ArrayList;
 
 public class RacingCar {
     private static final ArrayList<Car> cars = new ArrayList<>();
+    static ResultView resultView = new ResultView();
 
     public RacingCar(ArrayList<String> cars) {
         for (String car : cars) {
@@ -33,6 +34,6 @@ public class RacingCar {
                 winners.add(car.getName());
             }
         }
-        printWinner(winners);
+        resultView.printWinner(winners);
     }
 }

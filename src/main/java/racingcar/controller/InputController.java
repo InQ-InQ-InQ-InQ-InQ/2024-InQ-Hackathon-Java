@@ -3,25 +3,18 @@ import racingcar.model.NameValid;
 import racingcar.model.NumberVaild;
 import racingcar.model.RacingCar;
 import racingcar.view.InputView;
-import static racingcar.view.InputView.carNameInput;
 
 public class InputController {
+
+    InputView inputView = new InputView();
     // 레이싱 자동차를 생성한다.
-    public static RacingCar createRacingCar() {
-        try{
-            NameValid nameValid = new NameValid(carNameInput());
-            return new RacingCar(nameValid.getNames());
-        }catch (IllegalArgumentException e){
-            return createRacingCar();
-        }
+    public RacingCar createRacingCar() {
+        NameValid nameValid = new NameValid(inputView.carNameInput());
+        return new RacingCar(nameValid.getNames());
     }
 
-    public static int setRoundNum() {
-        try {
-            NumberVaild validation = new NumberVaild(Integer.parseInt(InputView.tryCountInput()));
-            return validation.getNumber();
-        } catch (IllegalArgumentException e) {
-            return setRoundNum();
-        }
+    public int setRoundNum() {
+        NumberVaild validation = new NumberVaild(Integer.parseInt(inputView.tryCountInput()));
+        return validation.getNumber();
     }
 }
