@@ -11,17 +11,18 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         createRacingCar();
-        setRoundNum();
         startGame();
     }
 
     // 게임 시작
     public static void startGame() {
-        // TODO 구현
-        // 회수만큼 실행
+        int round = setRoundNum();
+        System.out.println();
         printResult();
-        for (int i = 0; i < setRoundNum(); i++) {
+        for (int i = 0; i < round; i++) {
             RacingCar.moveCars();
+            System.out.println();
         }
+        RacingCar.getWinners();
     }
 }

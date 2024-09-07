@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 public class ResultView {
 
     // 경주 결과를 출력한다.
@@ -7,13 +9,12 @@ public class ResultView {
         System.out.println("실행 결과");
     }
 
-    // 경주 과정을 출력한다.
-    public static void printProcess() {
-        System.out.println("샬라샬라");
-    }
-
     // 최종 우승자를 출력한다.
-    public static void printWinner() {
-        System.out.println("최종 우승자: ");
+    public static void printWinner(ArrayList<String> winners) {
+        System.out.print("최종 우승자: ");
+        for (String winner : winners) {
+            System.out.print(winner + " ");
+        }
+        System.out.println();
     }
 }

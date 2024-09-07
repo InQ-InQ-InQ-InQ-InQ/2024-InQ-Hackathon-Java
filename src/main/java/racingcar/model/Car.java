@@ -24,4 +24,13 @@ public class Car{
             position++;
         }
     }
+
+    // 최대 위치 반환
+    public int getPosition(){
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
