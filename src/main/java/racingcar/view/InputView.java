@@ -1,5 +1,4 @@
 package racingcar.view;
-import java.util.Scanner;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
@@ -11,8 +10,8 @@ public class InputView {
     }
 
     // 시도할 회수를 입력받는다.
-    public static int tryCountInput() {
+    public static String tryCountInput() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }

@@ -18,7 +18,7 @@ public class InputController {
 
     public static int setRoundNum() {
         try {
-            NumberVaild validation = new NumberVaild(InputView.tryCountInput());
+            NumberVaild validation = new NumberVaild(Integer.parseInt(InputView.tryCountInput()));
             return validation.getNumber();
         } catch (IllegalArgumentException e) {
             return setRoundNum();
