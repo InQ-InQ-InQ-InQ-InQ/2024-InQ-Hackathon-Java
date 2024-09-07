@@ -26,7 +26,7 @@ public class View {
         return Integer.parseInt(reader.readLine());
     }
 
-    private void printCarNames(List<String> carNames, List<String> carProgress) {
+    private void printCarProgress(List<String> carNames, List<String> carProgress) {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.println(carNames.get(i) + " : " + carProgress.get(i));
         }
