@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Model {
@@ -51,19 +53,14 @@ public class Model {
         return sb;
     }
 
-    StringBuilder findWinner(){
-        StringBuilder sb = new StringBuilder();
-        boolean jointWinner = false;
+    String findWinner(){
+        ArrayList<String> winners = new ArrayList<>();
         for(int i=0; i<car.length; i++){
             if(distance[i]== maxDistance) {
-                if(jointWinner) {
-                    sb.append(", ");
-                }
-                jointWinner = true;
-                sb.append(car[i]);
+                winners.add(car[i]);
             }
         }
-        return sb;
+        return winners.toString().replace("[", "").replace("]", "");
     }
 
     void updateDistance(int rand, int i){

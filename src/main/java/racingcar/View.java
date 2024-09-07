@@ -19,9 +19,9 @@ public class View {
         System.out.println(sb);
     }
 
-    void printWinner(StringBuilder sb){
+    void printWinner(String winner){
         System.out.print("최종 우승자 : ");
-        System.out.println(sb);
+        System.out.println(winner);
     }
 
 }
