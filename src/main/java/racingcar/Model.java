@@ -47,4 +47,19 @@ public class Model {
         return sb;
     }
 
+    StringBuilder findWinner(Model model){
+        StringBuilder sb = new StringBuilder();
+        boolean jointWinner = false;
+        for(int i=0; i<car.length; i++){
+            if(len[i]==max) {
+                if(jointWinner) {
+                    sb.append(", ");
+                }
+                jointWinner = true;
+                sb.append(car[i]);
+            }
+        }
+        return sb;
+    }
+
 }

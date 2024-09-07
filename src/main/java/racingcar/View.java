@@ -26,4 +26,9 @@ public class View {
         }
     }
 
+    void printWinner(Model model){
+        System.out.print("최종 우승자 : ");
+        System.out.println(model.findWinner(model));
+    }
+
 }

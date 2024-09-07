@@ -11,5 +11,7 @@ public class Application {
         model.saveNumberOfAttempts(view.inputNumberOfAttempts());
 
         view.printResult(model);
+
+        view.printWinner(model);
     }
 }
