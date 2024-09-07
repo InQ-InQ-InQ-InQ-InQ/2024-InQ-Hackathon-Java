@@ -114,6 +114,20 @@ jun : -----
 최종 우승자 : pobi, jun
 ```
 
+### 라이브러리
+
+- JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
+    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
+    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+
+#### 사용 예시
+
+- 0에서 9까지의 정수 중 한 개의 정수 반환
+
+```java
+Randoms.pickNumberInRange(0,9);
+```
+
 ---
 
 ## 🎯 프로그래밍 요구 사항
