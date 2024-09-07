@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Random;
 import java.util.StringTokenizer;
 
@@ -36,7 +38,7 @@ public class Model {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < car.length; i++) {
-            int rand = random.nextInt(10);
+            int rand = Randoms.pickNumberInRange(0, 9);
             if(rand>=4) len[i]++;
             sb.append(car[i]).append(" : ");
             sb.append("-".repeat(Math.max(0, len[i])));
