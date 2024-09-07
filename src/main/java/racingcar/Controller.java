@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.io.IOException;
+import racingcar.Model.Model;
 
 public class Controller {
     Model model = new Model();
@@ -9,17 +9,15 @@ public class Controller {
     public void startGame() {
         try {
             try {
-                model.carNames = view.inputCarNames();
+                model.cars = view.inputCarNames();
             } catch (Exception e) {
                 System.out.println("Exception [Err_Msg] : " + e.getMessage());
             }
-            model.initCarProgress(model.carNames.size());
             model.frequency = view.inputFrequency();
             for (int i = 0; i < model.frequency; i++) {
-                model.gameProgress(model.carNames, model.carProgress);
-                view.printCarProgress(model.carNames, model.carProgress);
+                view.printCarProgress(model.cars, i);
             }
-            view.printResult(model.carNames, model.carProgress);
+            view.printResult(model.cars);
         } catch (Exception e) {
 
         }
