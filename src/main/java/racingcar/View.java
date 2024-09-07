@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class View {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    private List<String> inputCarNames(BufferedReader reader) throws IOException {
+    public List<String> inputCarNames() throws IOException {
         System.out.println("자동차의 이름들을 입력하세요");
         String carNames = reader.readLine();
         List<String> cars = new ArrayList<>();
@@ -21,18 +21,18 @@ public class View {
         return cars;
     }
 
-    private int inputFrequency(BufferedReader reader) throws IOException {
+    public int inputFrequency() throws IOException {
         System.out.println("총 시도할 횟수를 입력하세요");
         return Integer.parseInt(reader.readLine());
     }
 
-    private void printCarProgress(List<String> carNames, List<String> carProgress) {
+    public void printCarProgress(List<String> carNames, List<String> carProgress) {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.println(carNames.get(i) + " : " + carProgress.get(i));
         }
     }
 
-    private void printResult(List<String> carNames, List<String> carProgress) {
+    public void printResult(List<String> carNames, List<String> carProgress) {
         List<String> winner = new ArrayList<>();
         int max = 0;
         for (int i = 0; i < carProgress.size(); i++) { // 최댓값 찾기
