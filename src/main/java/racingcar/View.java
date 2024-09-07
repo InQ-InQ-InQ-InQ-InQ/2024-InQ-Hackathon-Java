@@ -40,6 +40,7 @@ public class View {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void printWinner(List<String> winner) {

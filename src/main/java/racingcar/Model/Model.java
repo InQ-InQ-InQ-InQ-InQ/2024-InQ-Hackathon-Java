@@ -10,10 +10,8 @@ public class Model {
     public int frequency = 0;
 
     public void moveCars() {
-        for (int i = 0; i < frequency; i++) {
-            for (Car car : cars) {
-                car.move();
-            }
+        for (Car car : cars) {
+            car.move();
         }
     }
 
