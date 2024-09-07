@@ -1,8 +1,6 @@
 package racingcar.model;
 
 public class Car{
-
-    RandomNumber randomNumber = new RandomNumber();
     private final String name;
     private int position;
 
@@ -13,7 +11,7 @@ public class Car{
 
     public void move(){
         // 랜덤 값이 4 이상이면 전진한다.
-        if(randomNumber.getRandomNumber() >= 4){
+        if(RandomNumber.getRandomNumber() >= 4){
             position++;
         }
     }
