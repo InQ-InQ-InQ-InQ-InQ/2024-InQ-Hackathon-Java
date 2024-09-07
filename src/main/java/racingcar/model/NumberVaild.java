@@ -4,7 +4,7 @@ public class NumberVaild {
     private static int number = 0;
 
     public NumberVaild(int number) {
-        this.number = number;
+        NumberVaild.number = number;
         isValid();
     }
 
