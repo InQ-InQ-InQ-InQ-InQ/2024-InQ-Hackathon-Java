@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class ResultView {
 
+    private ResultView() {
+    }
+
     // 경주 결과를 출력한다.
     public static void printResult() {
         System.out.println("실행 결과");

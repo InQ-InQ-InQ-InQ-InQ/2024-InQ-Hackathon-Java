@@ -34,7 +34,7 @@ public class RacingCar {
     }
 
     // 최대 이동값
-    public static int getMaxPosition() {
+    private static int getMaxPosition() {
         int maxPosition = 0;
         for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.getPosition());
