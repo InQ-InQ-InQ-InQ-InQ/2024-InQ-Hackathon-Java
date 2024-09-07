@@ -17,7 +17,7 @@ public class Model {
         return carProgress;
     }
 
-    public boolean move() {
+    public boolean isMovable() {
         int random = Randoms.pickNumberInRange(0, 9);
         return random >= 4;
     }
@@ -25,7 +25,7 @@ public class Model {
     public void gameProgress(List<String> carNames, List<String> carProgress) {
         for (int i = 0; i < carNames.size(); i++) {
             String progress = carProgress.get(i);
-            if (move()) {
+            if (isMovable()) {
                 progress += '-';
                 carProgress.set(i, progress);
             }
