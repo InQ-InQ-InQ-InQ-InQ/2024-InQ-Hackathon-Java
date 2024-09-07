@@ -11,5 +11,11 @@ public class View {
         return sc.next();
     }
 
+    String inputNumberOfAttempts(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        Scanner sc = new Scanner(new InputStreamReader(System.in));
+        return sc.next();
+    }
+
 
 }
