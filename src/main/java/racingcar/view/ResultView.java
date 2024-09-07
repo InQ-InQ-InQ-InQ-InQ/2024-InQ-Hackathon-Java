@@ -12,9 +12,7 @@ public class ResultView {
     // 라운드 결과 출력
     public static void printRoundResult(String name, int position) {
         System.out.print(name + " : ");
-        for (int i = 0; i < position; i++) {
-            System.out.print("-");
-        }
+        System.out.print("-".repeat(position));
         System.out.println();
     }
 
