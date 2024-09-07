@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NameValid {
-    final String carName;
     final ArrayList<String> names;
 
     public static ArrayList<String> toArrayList(String carsString) {
@@ -14,7 +13,6 @@ public class NameValid {
     }
 
     public NameValid(String carName) {
-        this.carName = carName;
         this.names = toArrayList(carName);
         isValid();
     }
