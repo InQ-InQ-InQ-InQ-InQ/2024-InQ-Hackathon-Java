@@ -31,8 +31,8 @@ public class View {
         }
     }
 
-    public void printCarProgress(List<Car> cars, int frequency) {
-        for (int index = 0; index < frequency; index++) {
+    public void printCarProgress(List<Car> cars, int length) {
+        for (int index = 0; index < length; index++) {
             System.out.print(cars.get(index).getName() + " : ");
             int progress = cars.get(index).getProgress();
             for (int i = 0; i < progress; i++) {

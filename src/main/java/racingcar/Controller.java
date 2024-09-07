@@ -10,7 +10,8 @@ public class Controller {
         try {
             model.splitNames(view.inputCarNames());
             model.frequency = view.inputFrequency();
-            view.printCarProgress(model.cars, model.frequency);
+            model.moveCars();
+            view.printCarProgress(model.cars, model.cars.size());
             model.findWinner();
             view.printWinner(model.winner);
         } catch (Exception e) {

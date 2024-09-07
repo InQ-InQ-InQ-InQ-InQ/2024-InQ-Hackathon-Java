@@ -1,7 +1,5 @@
 package racingcar.Model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -10,6 +8,14 @@ public class Model {
     public List<Car> cars = new ArrayList<>();
     public List<String> winner = new ArrayList<>();
     public int frequency = 0;
+
+    public void moveCars() {
+        for (int i = 0; i < frequency; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+        }
+    }
 
     public void splitNames(String carNames) {
         StringTokenizer st = new StringTokenizer(carNames, ",");
