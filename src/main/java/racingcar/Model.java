@@ -7,7 +7,7 @@ public class Model {
     String[] car;
     int[] len;
     int numberOfAttempts;
-    int max;
+    int max = 0;
 
     void saveCarName(String input){
 
@@ -52,9 +52,7 @@ public class Model {
         boolean jointWinner = false;
         for(int i=0; i<car.length; i++){
             if(len[i]==max) {
-                if(jointWinner) {
-                    sb.append(", ");
-                }
+                if(jointWinner) sb.append(", ");
                 jointWinner = true;
                 sb.append(car[i]);
             }
