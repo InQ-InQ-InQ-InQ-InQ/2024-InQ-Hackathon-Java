@@ -6,9 +6,9 @@ import racingcar.view.InputView;
 
 public class InputController {
     // 레이싱 자동차를 생성한다.
-    public static RacingCar createRacingCar() {
+    public static void createRacingCar() {
         NameValid nameValid = new NameValid(InputView.carNameInput());
-        return new RacingCar(nameValid.getNames());
+        new RacingCar(nameValid.getNames());
     }
 
     public static int setRoundNum() {
