@@ -30,6 +30,7 @@ public class View {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.println(carNames.get(i) + " : " + carProgress.get(i));
         }
+        System.out.println();
     }
 
     public void printResult(List<String> carNames, List<String> carProgress) {
@@ -50,7 +51,7 @@ public class View {
         for (int i = 0; i < winner.size(); i++) {
             System.out.print(winner.get(i));
             if (i + 1 < winner.size()) {
-                System.out.println(",");
+                System.out.print(",");
             }
         }
     }
