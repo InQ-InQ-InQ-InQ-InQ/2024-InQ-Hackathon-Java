@@ -7,5 +7,9 @@ public class Application {
         Model model = new Model();
 
         model.saveCarName(view.inputCarName());
+
+        model.saveNumberOfAttempts(view.inputNumberOfAttempts());
+
+        view.printResult(model);
     }
 }

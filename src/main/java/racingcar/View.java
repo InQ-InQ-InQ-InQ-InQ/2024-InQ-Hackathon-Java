@@ -17,5 +17,13 @@ public class View {
         return sc.next();
     }
 
+    void printResult(Model model){
+        System.out.println("\n실행 결과");
+        model.max = 0;
+        model.len = new int[model.car.length];
+        while (model.numberOfAttempts --> 0) {
+            System.out.println(model.race(model));
+        }
+    }
 
 }
