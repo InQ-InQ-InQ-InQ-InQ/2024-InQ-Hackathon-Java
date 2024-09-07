@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class Model {
     }
 
     public boolean move() {
-        int random = (int) (Math.random() * 10);
+        int random = Randoms.pickNumberInRange(0, 9);
         return random >= 4;
     }
 

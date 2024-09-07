@@ -1,29 +1,31 @@
 package racingcar;
 
-import java.io.BufferedReader;
+import camp.nextstep.edu.missionutils.Console;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class View {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
     public List<String> inputCarNames() throws IOException {
         System.out.println("자동차의 이름들을 입력하세요");
-        String carNames = reader.readLine();
+        String carNames = Console.readLine();
         List<String> cars = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(carNames, ",");
         while (st.hasMoreTokens()) {
-            cars.add(st.nextToken());
+            String str = st.nextToken();
+            cars.add(str);
+            if (str.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
         return cars;
     }
 
     public int inputFrequency() throws IOException {
         System.out.println("총 시도할 횟수를 입력하세요");
-        return Integer.parseInt(reader.readLine());
+        return Integer.parseInt(Console.readLine());
     }
 
     public void printCarProgress(List<String> carNames, List<String> carProgress) {
