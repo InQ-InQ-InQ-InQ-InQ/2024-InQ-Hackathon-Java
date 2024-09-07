@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class NumberVaild {
-    private final int number;
+    private static int number = 0;
 
     public NumberVaild(int number) {
         this.number = number;
