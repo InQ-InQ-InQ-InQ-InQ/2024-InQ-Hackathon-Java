@@ -25,4 +25,10 @@ public class View {
         System.out.println("총 시도할 횟수를 입력하세요");
         return Integer.parseInt(reader.readLine());
     }
+
+    private void printCarNames(List<String> carNames, List<String> carProgress) {
+        for (int i = 0; i < carNames.size(); i++) {
+            System.out.println(carNames.get(i) + " : " + carProgress.get(i));
+        }
+    }
 }
