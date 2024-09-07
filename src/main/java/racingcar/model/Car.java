@@ -1,21 +1,12 @@
 package racingcar.model;
 
 public class Car{
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name){
         this.name = name;
         this.position = 0;
-    }
-
-    // 라운드 결과 출력
-    public void printRoundResult(){
-        System.out.print(name.trim() + " : ");
-        for(int i = 0; i < position; i++){
-            System.out.print("-");
-        }
-        System.out.println();
     }
 
     public void move(){

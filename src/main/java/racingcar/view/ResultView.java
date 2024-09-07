@@ -5,12 +5,21 @@ import java.util.ArrayList;
 public class ResultView {
 
     // 경주 결과를 출력한다.
-    public void printResult() {
+    public static void printResult() {
         System.out.println("실행 결과");
     }
 
+    // 라운드 결과 출력
+    public static void printRoundResult(String name, int position) {
+        System.out.print(name + " : ");
+        for (int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     // 최종 우승자를 출력한다.
-    public void printWinner(ArrayList<String> winners) {
+    public static void printWinner(ArrayList<String> winners) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));

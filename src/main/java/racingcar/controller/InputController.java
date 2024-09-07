@@ -5,16 +5,14 @@ import racingcar.model.RacingCar;
 import racingcar.view.InputView;
 
 public class InputController {
-
-    InputView inputView = new InputView();
     // 레이싱 자동차를 생성한다.
-    public RacingCar createRacingCar() {
-        NameValid nameValid = new NameValid(inputView.carNameInput());
+    public static RacingCar createRacingCar() {
+        NameValid nameValid = new NameValid(InputView.carNameInput());
         return new RacingCar(nameValid.getNames());
     }
 
-    public int setRoundNum() {
-        NumberVaild validation = new NumberVaild(Integer.parseInt(inputView.tryCountInput()));
+    public static int setRoundNum() {
+        NumberVaild validation = new NumberVaild(Integer.parseInt(InputView.tryCountInput()));
         return validation.getNumber();
     }
 }
