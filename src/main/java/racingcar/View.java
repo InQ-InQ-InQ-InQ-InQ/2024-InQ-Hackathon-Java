@@ -22,13 +22,13 @@ public class View {
         model.max = 0;
         model.len = new int[model.car.length];
         while (model.numberOfAttempts --> 0) {
-            System.out.println(model.race(model));
+            System.out.println(model.race());
         }
     }
 
     void printWinner(Model model){
         System.out.print("최종 우승자 : ");
-        System.out.println(model.findWinner(model));
+        System.out.println(model.findWinner());
     }
 
 }
