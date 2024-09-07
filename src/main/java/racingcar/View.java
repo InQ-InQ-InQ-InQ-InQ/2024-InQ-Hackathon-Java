@@ -8,17 +8,22 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class View {
-    public List<String> inputCarNames() throws IOException {
-        System.out.println("자동차의 이름들을 입력하세요");
-        String carNames = Console.readLine();
+    public List<String> inputCarNames() {
         List<String> cars = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(carNames, ",");
-        while (st.hasMoreTokens()) {
-            String str = st.nextToken();
-            cars.add(str);
-            if (str.length() > 5) {
-                throw new IllegalArgumentException();
+        try {
+            System.out.println("자동차의 이름들을 입력하세요");
+            String carNames = Console.readLine();
+            StringTokenizer st = new StringTokenizer(carNames, ",");
+            while (st.hasMoreTokens()) {
+                String str = st.nextToken();
+                cars.add(str);
+                if (str.length() > 5) {
+                    throw new IllegalArgumentException("Car name should be less than 5 characters");
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Exception [Err_location] : " + e.getStackTrace()[0]);
+            throw new RuntimeException(e);
         }
         return cars;
     }
