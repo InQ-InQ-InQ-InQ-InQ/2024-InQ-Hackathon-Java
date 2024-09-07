@@ -11,7 +11,7 @@ public class Car{
 
     // 라운드 결과 출력
     public void printRoundResult(){
-        System.out.print(name + " : ");
+        System.out.print(name.trim() + " : ");
         for(int i = 0; i < position; i++){
             System.out.print("-");
         }
@@ -31,6 +31,6 @@ public class Car{
     }
 
     public String getName() {
-        return name;
+        return name.replace(" ", "");
     }
 }
