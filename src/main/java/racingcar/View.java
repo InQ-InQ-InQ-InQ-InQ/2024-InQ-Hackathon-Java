@@ -14,16 +14,14 @@ public class View {
         return Console.readLine();
     }
 
-    void printResult(Model model){
+    void printResult(StringBuilder sb){
         System.out.println("\n실행 결과");
-        while (model.numberOfAttempts --> 0) {
-            System.out.println(model.race());
-        }
+        System.out.println(sb);
     }
 
-    void printWinner(Model model){
+    void printWinner(StringBuilder sb){
         System.out.print("최종 우승자 : ");
-        System.out.println(model.findWinner());
+        System.out.println(sb);
     }
 
 }

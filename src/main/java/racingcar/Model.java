@@ -1,24 +1,24 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.Random;
 import java.util.StringTokenizer;
 
 public class Model {
     String[] car;
-    int[] len;
+    int[] distance;
     int numberOfAttempts;
-    int max = 0;
+    int maxDistance = 0;
 
     void saveCarName(String input){
 
         StringTokenizer st = new StringTokenizer(input, ",");
         car = new String[st.countTokens()];
-        len = new int[st.countTokens()];
+        distance = new int[st.countTokens()];
         for(int i=0; i<car.length; i++){
             String str = st.nextToken();
-            if(str.length()>5) throw new IllegalArgumentException("5글자 이하로 작성");
+            if(str.length()>5) {
+                throw new IllegalArgumentException("5글자 이하로 작성");
+            }
             car[i] = str;
         }
 
@@ -36,13 +36,16 @@ public class Model {
 
     StringBuilder race(){
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < car.length; i++) {
-            int rand = Randoms.pickNumberInRange(0, 9);
-            if(rand>=4) len[i]++;
-            sb.append(car[i]).append(" : ")
-            .append("-".repeat(Math.max(0, len[i])))
-            .append("\n");
-            max = Math.max(len[i], max);
+        while (numberOfAttempts --> 0) {
+            for (int i = 0; i < car.length; i++) {
+                int rand = Randoms.pickNumberInRange(0, 9);
+                updateDistance(rand, i);
+                sb.append(car[i]).append(" : ")
+                        .append("-".repeat(Math.max(0, distance[i])))
+                        .append("\n");
+                updateMaxValue(maxDistance, i);
+            }
+            sb.append("\n");
         }
 
         return sb;
@@ -52,13 +55,25 @@ public class Model {
         StringBuilder sb = new StringBuilder();
         boolean jointWinner = false;
         for(int i=0; i<car.length; i++){
-            if(len[i]==max) {
-                if(jointWinner) sb.append(", ");
+            if(distance[i]== maxDistance) {
+                if(jointWinner) {
+                    sb.append(", ");
+                }
                 jointWinner = true;
                 sb.append(car[i]);
             }
         }
         return sb;
+    }
+
+    void updateDistance(int rand, int i){
+        if(rand>=4) {
+            distance[i]++;
+        }
+    }
+
+    void updateMaxValue(int max, int i){
+        maxDistance = Math.max(distance[i], max);
     }
 
 }
