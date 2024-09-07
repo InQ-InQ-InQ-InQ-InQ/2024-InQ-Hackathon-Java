@@ -9,30 +9,26 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class View {
-    public List<Car> inputCarNames() {
-        List<Car> cars = new ArrayList<>();
+    public String inputCarNames() {
+        String carNames = "";
         try {
             System.out.println("자동차의 이름들을 입력하세요");
-            String carNames = Console.readLine();
-            StringTokenizer st = new StringTokenizer(carNames, ",");
-            while (st.hasMoreTokens()) {
-                String str = st.nextToken();
-                Car car = new Car(str, 0, false);
-                cars.add(car);
-                if (str.length() > 5) {
-                    throw new IllegalArgumentException("Car name should be less than 5 characters");
-                }
-            }
+            carNames = Console.readLine();
         } catch (Exception e) {
             System.out.println("Exception [Err_location] : " + e.getStackTrace()[0]);
             throw new RuntimeException(e);
         }
-        return cars;
+        return carNames;
     }
 
-    public int inputFrequency() throws IOException {
-        System.out.println("총 시도할 횟수를 입력하세요");
-        return Integer.parseInt(Console.readLine());
+    public int inputFrequency() {
+        try {
+            System.out.println("총 시도할 횟수를 입력하세요");
+            return Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            System.out.println("Exception [Err_location] : " + e.getStackTrace()[0]);
+            throw new RuntimeException(e);
+        }
     }
 
     public void printCarProgress(List<Car> cars, int frequency) {

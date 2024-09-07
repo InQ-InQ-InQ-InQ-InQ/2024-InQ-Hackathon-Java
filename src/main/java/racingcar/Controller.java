@@ -8,17 +8,13 @@ public class Controller {
 
     public void startGame() {
         try {
-            try {
-                model.cars = view.inputCarNames();
-            } catch (Exception e) {
-                System.out.println("Exception [Err_Msg] : " + e.getMessage());
-            }
+            model.splitNames(view.inputCarNames());
             model.frequency = view.inputFrequency();
             view.printCarProgress(model.cars, model.frequency);
             model.findWinner();
             view.printWinner(model.winner);
         } catch (Exception e) {
-
+            System.out.println("Exception [Err_Msg] : " + e.getMessage());
         }
     }
 }
