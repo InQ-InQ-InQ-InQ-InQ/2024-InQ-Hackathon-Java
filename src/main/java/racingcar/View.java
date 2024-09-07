@@ -2,9 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
 public class View {
 
     String inputCarName(){

@@ -36,13 +36,12 @@ public class Model {
 
     StringBuilder race(){
         StringBuilder sb = new StringBuilder();
-        Random random = new Random();
         for (int i = 0; i < car.length; i++) {
             int rand = Randoms.pickNumberInRange(0, 9);
             if(rand>=4) len[i]++;
-            sb.append(car[i]).append(" : ");
-            sb.append("-".repeat(Math.max(0, len[i])));
-            sb.append("\n");
+            sb.append(car[i]).append(" : ")
+            .append("-".repeat(Math.max(0, len[i])))
+            .append("\n");
             max = Math.max(len[i], max);
         }
 
