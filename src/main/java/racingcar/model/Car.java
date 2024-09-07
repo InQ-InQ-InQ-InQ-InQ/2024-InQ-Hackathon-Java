@@ -10,6 +10,7 @@ public class Car{
     }
 
     public void move(){
+        // 매개변수로 랜덤 값을 주면 테스트하기 좋아진다.
         // 랜덤 값이 4 이상이면 전진한다.
         if(RandomNumber.getRandomNumber() >= 4){
             position++;
