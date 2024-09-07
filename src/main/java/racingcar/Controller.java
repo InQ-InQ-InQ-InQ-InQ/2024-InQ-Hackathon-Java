@@ -14,10 +14,9 @@ public class Controller {
                 System.out.println("Exception [Err_Msg] : " + e.getMessage());
             }
             model.frequency = view.inputFrequency();
-            for (int i = 0; i < model.frequency; i++) {
-                view.printCarProgress(model.cars, i);
-            }
-            view.printResult(model.cars);
+            view.printCarProgress(model.cars, model.frequency);
+            model.findWinner();
+            view.printWinner(model.winner);
         } catch (Exception e) {
 
         }

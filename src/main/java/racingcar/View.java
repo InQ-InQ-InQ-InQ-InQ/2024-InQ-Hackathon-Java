@@ -35,32 +35,18 @@ public class View {
         return Integer.parseInt(Console.readLine());
     }
 
-    public void printCarProgress(List<Car> cars, int index) {
-        System.out.print(cars.get(index).getName() + " : ");
-        int progress = cars.get(index).getProgress();
-        for (int i = 0; i < progress; i++) {
-            System.out.print("-");
+    public void printCarProgress(List<Car> cars, int frequency) {
+        for (int index = 0; index < frequency; index++) {
+            System.out.print(cars.get(index).getName() + " : ");
+            int progress = cars.get(index).getProgress();
+            for (int i = 0; i < progress; i++) {
+                System.out.print("-");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 
-    public void printResult(List<Car> cars) {
-        List<String> winner = new ArrayList<>();
-
-        int max = 0;
-
-        for (int i = 0; i < cars.size(); i++) { // 최댓값 찾기
-            if (cars.get(i).getProgress() >= max) {
-                max = cars.get(i).getProgress();
-            }
-        }
-
-        for (int i = 0; i < cars.size(); i++) { // 우승자 찾기
-            if (cars.get(i).getProgress() >= max) {
-                winner.add(cars.get(i).getName());
-            }
-        }
-
+    public void printWinner(List<String> winner) {
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winner.size(); i++) {
             System.out.print(winner.get(i));
