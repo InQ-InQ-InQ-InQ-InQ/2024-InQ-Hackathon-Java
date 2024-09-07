@@ -31,4 +31,27 @@ public class View {
             System.out.println(carNames.get(i) + " : " + carProgress.get(i));
         }
     }
+
+    private void printResult(List<String> carNames, List<String> carProgress) {
+        List<String> winner = new ArrayList<>();
+        int max = 0;
+        for (int i = 0; i < carProgress.size(); i++) { // 최댓값 찾기
+            if (carProgress.get(i).length() >= max) {
+                max = carProgress.get(i).length();
+            }
+        }
+        for (int i = 0; i < carProgress.size(); i++) { // 우승자 찾기
+            if (carProgress.get(i).length() >= max) {
+                winner.add(carNames.get(i));
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < winner.size(); i++) {
+            System.out.print(winner.get(i));
+            if (i + 1 < winner.size()) {
+                System.out.println(",");
+            }
+        }
+    }
 }
