@@ -8,8 +8,7 @@ public class NameValid {
 
     public ArrayList<String> toArrayList(String carsString) {
         String[] carNames = carsString.trim().split(",");
-        ArrayList<String> names = new ArrayList<>(Arrays.asList(carNames));
-        return names;
+        return new ArrayList<>(Arrays.asList(carNames));
     }
 
     public NameValid(String carName) {
