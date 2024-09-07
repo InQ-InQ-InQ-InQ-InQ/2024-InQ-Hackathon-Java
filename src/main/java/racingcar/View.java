@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Map;
 
 public class View {
 
@@ -14,8 +15,14 @@ public class View {
         return Console.readLine();
     }
 
-    void printResult(StringBuilder sb){
-        System.out.println("\n실행 결과");
+    void printResult(Map<String, Integer> result){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n실행 결과\n\n");
+
+        result.forEach((name, distance)-> sb.append(name).append(" : ")
+                .append("-".repeat(distance))
+                .append("\n"));
         System.out.println(sb);
     }
 

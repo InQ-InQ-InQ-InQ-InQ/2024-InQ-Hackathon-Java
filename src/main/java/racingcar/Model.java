@@ -1,27 +1,27 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Model {
-    String[] car;
-    int[] distance;
+
     int numberOfAttempts;
     int maxDistance = 0;
+    ArrayList<Car> carList;
 
     void saveCarName(String input){
 
         StringTokenizer st = new StringTokenizer(input, ",");
-        car = new String[st.countTokens()];
-        distance = new int[st.countTokens()];
-        for(int i=0; i<car.length; i++){
-            String str = st.nextToken();
-            if(str.length()>5) {
+        carList = new ArrayList<>();
+        while (st.hasMoreTokens()){
+            String name = st.nextToken();
+            if(name.length()>5) {
                 throw new IllegalArgumentException("5글자 이하로 작성");
             }
-            car[i] = str;
+            carList.add(new Car(name));
         }
 
     }
@@ -36,41 +36,35 @@ public class Model {
 
     }
 
-    StringBuilder race(){
-        StringBuilder sb = new StringBuilder();
+    Map<String, Integer> race(){
+
+        Map<String, Integer> result = new HashMap<>();
+
         while (numberOfAttempts --> 0) {
-            for (int i = 0; i < car.length; i++) {
+            for (Car list : carList) {
                 int rand = Randoms.pickNumberInRange(0, 9);
-                updateDistance(rand, i);
-                sb.append(car[i]).append(" : ")
-                        .append("-".repeat(Math.max(0, distance[i])))
-                        .append("\n");
-                updateMaxValue(maxDistance, i);
+                list.addDistance(rand);
+                result.put(list.name, list.distance);
+                updateMaxValue(maxDistance, list.distance);
             }
-            sb.append("\n");
         }
 
-        return sb;
+        return result;
     }
 
     String findWinner(){
         ArrayList<String> winners = new ArrayList<>();
-        for(int i=0; i<car.length; i++){
-            if(distance[i]== maxDistance) {
-                winners.add(car[i]);
+        for (Car list : carList) {
+            if(list.sameDistance(maxDistance)){
+                winners.add(list.name);
             }
         }
         return winners.toString().replace("[", "").replace("]", "");
     }
 
-    void updateDistance(int rand, int i){
-        if(rand>=4) {
-            distance[i]++;
-        }
-    }
 
-    void updateMaxValue(int max, int i){
-        maxDistance = Math.max(distance[i], max);
+    void updateMaxValue(int max, int distance){
+        maxDistance = Math.max(distance, max);
     }
 
 }
