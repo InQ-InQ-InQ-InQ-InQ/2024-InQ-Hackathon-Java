@@ -1,27 +1,27 @@
 package racingcar.controller;
 import racingcar.model.NameValid;
 import racingcar.model.NumberVaild;
+import racingcar.model.RacingCar;
 import racingcar.view.InputView;
-
 import static racingcar.view.InputView.carNameInput;
 
 public class InputController {
     // 레이싱 자동차를 생성한다.
-    public static void createRacingCar() {
+    public static RacingCar createRacingCar() {
         try{
             NameValid nameValid = new NameValid(carNameInput());
-            // return new RacingCar(nameValid);
+            return new RacingCar(nameValid.getNames());
         }catch (IllegalArgumentException e){
-            createRacingCar();
+            return createRacingCar();
         }
     }
 
-    public static void setRoundNum() {
+    public static int setRoundNum() {
         try {
             NumberVaild validation = new NumberVaild(InputView.tryCountInput());
-            // eturn Integer.parseInt(validation.toString());
+            return validation.getNumber();
         } catch (IllegalArgumentException e) {
-            setRoundNum();
+            return setRoundNum();
         }
     }
 }
